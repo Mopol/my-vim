@@ -303,7 +303,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 set tags+=./tags
-
+nnoremap <Leader>/ : nohl<CR>
 
 
 
