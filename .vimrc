@@ -280,23 +280,24 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-expand-region'
 
 Plugin 'majutsushi/tagbar'
-
+Plugin  'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 filetype plugin indent on
 
  colorscheme darkblue
 imap ff <ESC>
-imap ff <ESC> 
+
 inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
+"inoremap [ []<ESC>i
 inoremap { {}<ESC>i
-inoremap < <><ESC>i
+"inoremap < <><ESC>i
 nnoremap <Leader>nt :exec 'NERDTreeToggle' <CR>
 nnoremap <Leader>tb :exec 'TagbarToggle' <CR>
 let g:tagbar_width=30
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
-autocmd  VimEnter * NERDTree
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
+"autocmd  VimEnter * NERDTree
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -305,7 +306,10 @@ map <C-l> <C-W>l
 set tags+=./tags
 nnoremap <Leader>/ : nohl<CR>
 inoremap jj <esc>
-
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'   “配置默认的ycm_extra_conf.py
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>   “按,jd 会跳转到定义
+let g:ycm_confirm_extra_conf=0    “打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_collect_identifiers_from_tag_files = 1 "使用ctags生成的tags文件
 
 
 
